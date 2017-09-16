@@ -1,0 +1,10 @@
+object week6 {
+class Poly(val terms: Map[Int, Double]) {
+	def + (other: Poly): Poly  = {
+	val thisList: List[(Int, Double)] = terms.toList
+	val thatList: List[(Int, Double)] = other.terms.toList
+	val combineList = thisList ++ thatList
+	val newMap: Map[Int, List[Double]] = (combineList.toMap).groupBy(_._1)
+	}
+}
+}

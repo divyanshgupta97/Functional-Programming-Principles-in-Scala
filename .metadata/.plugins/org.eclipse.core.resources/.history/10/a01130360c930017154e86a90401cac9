@@ -1,0 +1,5 @@
+object nQueens {                                  //> Welcome to the Scala worksheet
+def nQueens(n: Int): Set[List[Int]] = {
+	
+}
+}

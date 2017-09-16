@@ -1,0 +1,23 @@
+object nQueens {
+def nQueens(n: Int): Set[List[Int]] = {
+
+	def isSafe(col: Int, queens: List[Int]): Boolean = {
+		val k: Int = queens.length
+		val pairList: List[(Int, Int)] = queens zip (k until 0 by -1)
+		pairList.forall{case(elem, row) => (math.abs(elem - col) != 0) && (math.abs(elem - col) != (k+1 - row))}
+	}
+		
+		
+	def placeQueens(k: Int): Set[List[Int]] =
+		if(k == 0) Set(List())
+		else
+			for{
+				queens <- placeQueens(k - 1)
+				col <- 1 until n
+				if isSafe(col, queens)
+			} yield col::queens
+	 
+	placeQueens(n)
+}                                                 //> nQueens: (n: Int)Set[List[Int]]
+nQueens(4)                                        //> res0: Set[List[Int]] = Set()
+}

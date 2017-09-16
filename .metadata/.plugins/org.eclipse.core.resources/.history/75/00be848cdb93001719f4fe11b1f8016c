@@ -1,0 +1,3 @@
+object week6 {
+  println("Welcome to the Scala worksheet")
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/Users/divyanshgupta/SCALA/example"/>
+	</list>
+	<section name="CleanDialogSettings">
+		<item value="484" key="DIALOG_WIDTH"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
+		<item value="354" key="DIALOG_HEIGHT"/>
+		<item value="402" key="DIALOG_X_ORIGIN"/>
+		<item value="151" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/divyanshgupta/scala/forcomp"/>
+			<item value="/Users/divyanshgupta/scala/patmat"/>
+			<item value="/Users/divyanshgupta/scala/objsets"/>
+			<item value="/Users/divyanshgupta/scala/funsets"/>
+			<item value="/Users/divyanshgupta/Scala/objsets"/>
+			<item value="/Users/divyanshgupta/Scala/funsets"/>
+			<item value="/Users/divyanshgupta/Scala/recfun"/>
+			<item value="/Users/divyanshgupta/Scala/example"/>
+			<item value="/Users/divyanshgupta/Scala/Hello-World"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.ui.wizards.new.project" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="323" key="DIALOG_X_ORIGIN"/>
+		<item value="192" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="BasicNewProjectResourceWizard">
+	</section>
+</section>

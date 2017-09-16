@@ -1,0 +1,36 @@
+object nQueens {
+def nQueens(n: Int): Set[List[Int]] = {
+
+	def isSafe(col: Int, queens: List[Int]): Boolean = {
+		val k: Int = queens.length
+		val pairList: List[(Int, Int)] = queens zip (k until 0)
+		pairList.forall{case(elem, row) => (math.abs(elem - col) != 0) && (math.abs(elem - col) != (k+1 - row))}
+	}
+		
+		
+	def placeQueens(k: Int): Set[List[Int]] =
+		if(k == 0) Set(List())
+		else
+			for{
+				queens <- placeQueens(k - 1)
+				col <- 1 until n
+				if isSafe(col, queens)
+			} yield col::queens
+	 
+	placeQueens(n)
+}                                                 //> nQueens: (n: Int)Set[List[Int]]
+nQueens(4)                                        //> res0: Set[List[Int]] = Set(List(2, 3, 3, 1), List(3, 1, 3, 3), List(2, 1, 2,
+                                                  //|  2), List(3, 1, 3, 2), List(1, 2, 3, 3), List(1, 1, 3, 1), List(2, 2, 2, 2),
+                                                  //|  List(2, 3, 3, 3), List(1, 3, 3, 2), List(3, 2, 1, 1), List(3, 3, 3, 3), Lis
+                                                  //| t(1, 3, 3, 3), List(3, 1, 2, 3), List(3, 1, 2, 2), List(3, 3, 3, 2), List(3,
+                                                  //|  2, 2, 2), List(2, 2, 3, 3), List(1, 3, 2, 3), List(1, 1, 3, 2), List(2, 3, 
+                                                  //| 3, 2), List(2, 2, 3, 1), List(3, 3, 2, 3), List(1, 3, 1, 1), List(3, 2, 3, 1
+                                                  //| ), List(3, 2, 3, 3), List(2, 1, 3, 1), List(2, 3, 1, 3), List(2, 2, 3, 2), L
+                                                  //| ist(2, 1, 3, 2), List(3, 3, 1, 2), List(1, 2, 1, 3), List(3, 2, 2, 1), List(
+                                                  //| 1, 2, 2, 3), List(1, 3, 3, 1), List(1, 1, 2, 1), List(2, 3, 2, 1), List(2, 1
+                                                  //| , 1, 1), List(2, 3, 2, 2), List(1, 2, 1, 2), List(2, 1, 1, 3), List(1, 2, 2,
+                                                  //|  2), List(1, 3, 2, 1), List(3, 2, 1, 2), List(1, 1, 1, 2), List(3, 3, 3, 1),
+                                                  //|  List(1, 3, 1, 2), List(3, 1, 1, 1), List(3, 3, 2, 2), List(3, 3, 1, 3), Lis
+                                                  //| t(2, 2, 1, 2), List(3, 1
+                                                  //| Output exceeds cutoff limit.
+}

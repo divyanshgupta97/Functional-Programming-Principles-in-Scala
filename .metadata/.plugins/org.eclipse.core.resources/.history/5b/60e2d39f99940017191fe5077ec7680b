@@ -1,0 +1,15 @@
+object week6 {
+class Poly(val terms: Map[Int, Double]) {
+	def + (other: Poly): Poly = new Poly(this.terms ++ (other.terms map adjust))
+	def adjust(term: (Int, Double)): (Int, Double) = {
+		val (exp, coeff) = term
+		this.terms get exp match {
+			case Some(coeff1) => (exp, coeff + coeff1)
+			case None => (exp, coeff)
+		}
+	}
+}
+val p1: Poly = new Poly(Map(5->5, 3->3, 1->1))    //> p1  : week6.Poly = week6$Poly@3498ed
+val p2: Poly = new Poly(Map(5->10, 3->6, 1->2))   //> p2  : week6.Poly = week6$Poly@2ed94a8b
+(p1 + p2).terms                                   //> res0: Map[Int,Double] = Map(5 -> 10.0, 1 -> 2.0, 3 -> 6.0)
+}

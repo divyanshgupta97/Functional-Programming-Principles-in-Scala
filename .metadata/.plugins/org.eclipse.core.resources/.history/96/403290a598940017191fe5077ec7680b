@@ -1,0 +1,15 @@
+object week6 {
+class Poly(val terms: Map[Int, Double]) {
+	def + (other: Poly): Poly = {
+		val pairList: List[(Int, Double)] = ((this.terms ++ other.terms) toList)
+		val expTupleMap: Map[Int, List[(Int, Double)]] = pairList.groupBy(_._1)
+		val expTupleListMap: Map[Int, List[Double]] = expTupleMap map {case(exp, tupleList) => (exp, tupleList.map{case(x, y) => y})}
+		val polyMap: Map[Int, Double] = expTupleListMap.map{case(exp, coeffList) => (exp, coeffList.sum)}
+		new Poly(polyMap)
+	}
+}
+val p1: Poly = new Poly(Map(5->5, 3->3, 1->1))    //> p1  : week6.Poly = week6$Poly@3498ed
+val p2: Poly = new Poly(Map(5->10, 3->6, 1->2))   //> p2  : week6.Poly = week6$Poly@2ed94a8b
+(p1 + p2).terms                                   //> res0: Map[Int,Double] = Map(5 -> 5.0, 1 -> 1.0, 2 -> 2.0, 3 -> 3.0, 4 -> 4.0
+                                                  //| )
+}

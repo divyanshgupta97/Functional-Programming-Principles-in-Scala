@@ -1,0 +1,7 @@
+object week6 {
+class Poly(val terms: Map[Int, Double]) {
+	def + (other: Poly): Poly  = {
+		val thisList: List[(Int, Double)] = terms.foldRight(List())((elem, acc) => elem::acc)
+	}
+}
+}

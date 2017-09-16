@@ -1,0 +1,40 @@
+object nQueens {
+def nQueens(n: Int): Set[List[Int]] = {
+
+	def isSafe(col: Int, queens: List[Int]): Boolean = {
+		val lastRow = queens.length
+		val pairList: List[(Int, Int)] = queens zip (lastRow to 0 by -1)
+		pairList.forall{case(colNum, rowNum) => {
+														val diff = math.abs(colNum - col)
+														(diff != 0) && (diff != (lastRow + 1 - rowNum))
+												}
+										}
+	}
+		
+		
+	def placeQueens(k: Int): Set[List[Int]] =
+		if(k == 0) Set(List())
+		else
+			for{
+				queens <- placeQueens(k - 1)
+				col <- 0 until n
+				if isSafe(col, queens)
+			} yield col::queens
+	 
+	placeQueens(n)
+}                                                 //> nQueens: (n: Int)Set[List[Int]]
+nQueens(8)                                        //> res0: Set[List[Int]] = Set(List(2, 0, 6, 4, 7, 1, 3, 5), List(5, 2, 0, 7, 3,
+                                                  //|  1, 6, 4), List(4, 1, 7, 0, 3, 6, 2, 5), List(4, 2, 7, 3, 6, 0, 5, 1), List(
+                                                  //| 4, 2, 0, 5, 7, 1, 3, 6), List(2, 6, 1, 7, 4, 0, 3, 5), List(3, 5, 7, 1, 6, 0
+                                                  //| , 2, 4), List(2, 5, 1, 6, 4, 0, 7, 3), List(4, 0, 7, 3, 1, 6, 2, 5), List(3,
+                                                  //|  5, 7, 2, 0, 6, 4, 1), List(6, 3, 1, 7, 5, 0, 2, 4), List(5, 2, 6, 1, 7, 4, 
+                                                  //| 0, 3), List(3, 7, 0, 2, 5, 1, 6, 4), List(2, 5, 3, 1, 7, 4, 6, 0), List(3, 1
+                                                  //| , 6, 2, 5, 7, 0, 4), List(7, 2, 0, 5, 1, 4, 6, 3), List(0, 6, 3, 5, 7, 1, 4,
+                                                  //|  2), List(1, 7, 5, 0, 2, 4, 6, 3), List(1, 5, 0, 6, 3, 7, 2, 4), List(3, 7, 
+                                                  //| 0, 4, 6, 1, 5, 2), List(3, 7, 4, 2, 0, 6, 1, 5), List(5, 2, 4, 7, 0, 3, 1, 6
+                                                  //| ), List(7, 3, 0, 2, 5, 1, 6, 4), List(5, 2, 6, 3, 0, 7, 1, 4), List(2, 4, 1,
+                                                  //|  7, 5, 3, 6, 0), List(0, 5, 7, 2, 6, 3, 1, 4), List(3, 1, 6, 4, 0, 7, 5, 2),
+                                                  //|  List(6, 2, 0, 5, 7, 4, 1, 3), List(6, 3, 1, 4, 7, 0, 2, 5), List(4, 0, 3, 5
+                                                  //| , 7, 1, 6, 2), List(4, 6
+                                                  //| Output exceeds cutoff limit.
+}

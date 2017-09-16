@@ -1,0 +1,18 @@
+object nQueens {
+def nQueens(n: Int): Set[List[Int]] = {
+
+	def isSafe(col: Int, queens: List[Int]): Boolean = 
+		queens.forall(x => if(x == col) false else if (col > x) ((col - x) == (1 + queens.indexOf(x))) else ((x - col) == (1 + queens.indexOf(x))))
+		
+	def placeQueens(k: Int): Set[List[Int]] =
+		if(k == 0) Set(List())
+		else
+			for{
+				queens <- placeQueens(k - 1)
+				col <- 1 until n
+				if isSafe(col, queens)
+			} yield col::queens
+	 
+	placeQueens(n)
+}
+}
